@@ -1,0 +1,47 @@
+#########################
+### common parameters ###
+#########################
+session_id: '00'
+random_seed: 1234
+cuda_id: 0
+dataset_train: 'dataset'
+dataset_test: # you can add more testset
+  - 'testset_c'
+best_params: 
+  batch_size: 256
+  dropout_rate: 0.6
+  l1_alpha: 0.000001
+trained_weight_file: 
+
+
+################################
+### mode specific parameters ###
+################################
+# hyper parameter tuning
+pt_num_fold: 5
+pt_num_epoch: 10
+params_grid:
+  batch_size: 
+    - 32
+    - 64
+    - 128
+    - 256
+  dropout_rate: 
+    - 0.4
+    - 0.5
+    - 0.6
+  l1_alpha: 
+    - 0.0001
+    - 0.00001
+    - 0.000001
+
+# model training
+train_num_epoch: 20
+
+# model evaluation (cross validation)
+cv_num_fold: 5
+cv_num_epoch: 20
+
+# RNA sequence motif detection
+sequence: # youcan add more RNA sequence
+  - 'UGUCGGGUAGCUUAUCAGACUGAUGUUGACUGUUGAAUCUCAUGGCAACACCAGUCGAUGGGCUGUCUGACA'

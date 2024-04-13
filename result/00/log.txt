@@ -1,0 +1,113 @@
+#######################################
+##### LOG FILE FOR SESSION ID: 00 #####
+#######################################
+
+Hyper parameter tuning (2024/03/24 15:41:09)
+
+  [argument] number of fold : 5
+             number of epoch: 10
+             parameter grid : batch_size([256]) dropout_rate([0.5, 0.6]) l1_alpha([1e-06]) 
+
+  [dataset]  dataset
+             interaction  : 16328(pos-4828, neg-11500)
+             number of RNA: 1743
+             number of SM : 594
+
+  [result]   process time (0.0:5.0:4.568186521530151)
+             best patameters: batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+
+             best AUROC: 0.99403+/-0.00354
+             best AUPRC: 0.99140+/-0.00507
+
+Model training (2024/03/24 15:47:03)
+  [argument] number of epoch : 20
+             hyper parameters: batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+
+  [dataset]  X+Y+Z
+             interaction  : 15959(pos-4662, neg-11297)
+             number of RNA: 1723
+             number of SM : 592
+
+  [result]   process time (0.0:0.0:43.41907739639282)
+             result saved as: X+Y+Z_train_result.csv
+             trained weight saved at: /home/slab/rizumu_ueda/RCIP/ckpt/weight_00_dataset_bs256_dr6_la-06_ep20.pth
+             AUROC: 0.96622
+             AUPRC: 0.95266
+
+Model evaluation [cross validation] (2024/03/24 15:49:15)
+  [argument] number of fold  : 5
+             number of epoch : 20
+             hyper parameters: batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+
+  [dataset]  dataset
+             interaction  : 15959(pos-4662, neg-11297)
+             number of RNA: 1723
+             number of SM : 592
+
+  [result]   process time (0.0:3.0:26.67615056037903)
+             AUROC: 0.98187+/-0.01330
+             AUPRC: 0.97439+/-0.01851
+
+Model evaluation [test] (2024/03/24 15:53:17)
+  [argument] hyper parameters   : batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+             trained weight path: /home/slab/rizumu_ueda/RCIP/ckpt/weight_00_dataset_bs256_dr6_la-06_ep20.pth
+
+  [dataset]  test_a
+             interaction  : 199(pos-70, neg-129)
+             number of RNA: 199
+             number of SM : 1
+
+  [result]   process time (0.0:0.0:0.587970495223999)
+             result saved as: test_a_test_result.csv
+             AUROC: 0.79745
+             AUPRC: 0.72045
+
+Model evaluation [test] (2024/03/24 15:53:17)
+  [argument] hyper parameters   : batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+             trained weight path: /home/slab/rizumu_ueda/RCIP/ckpt/weight_00_dataset_bs256_dr6_la-06_ep20.pth
+
+  [dataset]  test_b
+             interaction  : 170(pos-96, neg-74)
+             number of RNA: 170
+             number of SM : 1
+
+  [result]   process time (0.0:0.0:0.285294771194458)
+             result saved as: test_b_test_result.csv
+             AUROC: 0.63070
+             AUPRC: 0.70469
+
+Model evaluation [test] (2024/03/24 15:53:17)
+  [argument] hyper parameters   : batch_size(256) dropout_rate(0.6) l1_alpha(1e-06) 
+             trained weight path: /home/slab/rizumu_ueda/RCIP/ckpt/weight_00_dataset_bs256_dr6_la-06_ep20.pth
+
+  [dataset]  test_c
+             interaction  : 100(pos-43, neg-57)
+             number of RNA: 34
+             number of SM : 38
+
+  [result]   process time (0.0:0.0:0.275087833404541)
+             result saved as: test_c_test_result.csv
+             AUROC: 0.66667
+             AUPRC: 0.54298
+
+Motif detection (2024/03/24 15:54:31)
+  [argument] trained weight path : /home/slab/rizumu_ueda/RCIP/ckpt/weight_00_dataset_bs256_dr6_la-06_ep20.pth
+
+  UGUCGGGUAGCUUAUCAGACUGAUGUUGACUGUUGAAUCUCAUGGCAACACCAGUCGAUGGGCUGUCUGACA
+  -------------------CUGAUGUUG-------------------------------------------- Filter_06 (w=0.07221, ip=0.41828)
+  ------------------ACUGAUGUU--------------------------------------------- Filter_09 (w=0.06889, ip=0.58425)
+  --------------------UGAUGUUGA------------------------------------------- Filter_15 (w=0.05465, ip=0.94254)
+  -----------UUAUCAGAC---------------------------------------------------- Filter_11 (w=0.05364, ip=0.55826)
+  ---CGGGUAGCU------------------------------------------------------------ Filter_10 (w=0.05316, ip=0.44831)
+  ------------------------------------------------------------GGCUGUCUG--- Filter_02 (w=0.05106, ip=0.49699)
+  ---------------------------GACUGUUGA------------------------------------ Filter_12 (w=0.03921, ip=0.36769)
+  ------------------------------------------------------UCGAUGGGC--------- Filter_01 (w=0.03525, ip=0.67096)
+  -------------------------UUGACUGUU-------------------------------------- Filter_05 (w=0.03297, ip=0.55796)
+  -----------------------------------------------ACACCAGUC---------------- Filter_14 (w=0.03224, ip=0.49592)
+  ---------------------------------------------CAACACCAG------------------ Filter_13 (w=0.01915, ip=0.77184)
+  ---------------------------GACUGUUGA------------------------------------ Filter_16 (w=0.01881, ip=0.75395)
+  -------------------------------------------------ACCAGUCGA-------------- Filter_08 (w=0.01673, ip=0.69210)
+  ----------------------------------------------AACACCAGU----------------- Filter_03 (w=0.01414, ip=0.66334)
+  -----------------------------CUGUUGAAU---------------------------------- Filter_04 (w=0.01285, ip=0.63464)
+  ------GUAGCUUAU--------------------------------------------------------- Filter_07 (w=0.01229, ip=0.48952)
+
